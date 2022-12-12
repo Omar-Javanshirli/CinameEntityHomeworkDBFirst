@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="CinameEntityHomeworkDBFirst.Domain.Views.UserControls.SeatUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CinameEntityHomeworkDBFirst.Domain.Views.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="40" d:DesignWidth="40" Width="40" Height="40" Margin="10">
+    <Grid>
+        <Button x:Name="btn1"  Width="40" Height="40" Content="{Binding Seat.No}" Margin="0" Command="{Binding SeatSelectCommand}" >
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="#c6c6c7"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border BorderThickness="2" BorderBrush="#2d303e" Background="{TemplateBinding Background}" CornerRadius="5">
+                                    <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <ContentPresenter.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Foreground" Value="White"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ContentPresenter.Resources>
+                                    </ContentPresenter>
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding Seat.Case,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Value="2">
+                                        <Setter Property="Background" Value="Orange" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Seat.Case,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Value="3">
+                                        <Setter Property="Background" Value="Red" />
+                                    </DataTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+
+</UserControl>

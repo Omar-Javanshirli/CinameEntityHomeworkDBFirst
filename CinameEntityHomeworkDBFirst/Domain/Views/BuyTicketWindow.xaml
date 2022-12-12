@@ -1,0 +1,127 @@
+﻿<Window x:Class="CinameEntityHomeworkDBFirst.Domain.Views.BuyTicketWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinameEntityHomeworkDBFirst.Domain.Views" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="BuyTicketWindow" Height="720" Width="1014" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" AllowsTransparency="True" 
+        WindowStyle="None">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+
+        <Canvas Background="#151c26">
+            <TextBlock Text="About" FontSize="20" Foreground="#5d6167" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="90"
+                       Canvas.Top="30"/>
+            <Button Style="{StaticResource myButton2}" Canvas.Left="270" Canvas.Top="27" Command="{Binding BackCommand}">
+                <Image Source="/Image/Left.png" Cursor="Hand" Width="30"></Image>
+            </Button>
+            <Line X1="0" Y1="0" X2="1" Y2="89" Stroke="#5d6167" Canvas.Left="252.1"  ></Line>
+            <TextBlock Text="Reserve your Ticket" Foreground="AliceBlue" FontSize="20" Canvas.Left="500" Canvas.Top="30" FontStyle="Italic" FontFamily="Verdana"/>
+        </Canvas>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+
+                <StackPanel.Background>
+                    <LinearGradientBrush >
+                        <GradientStop Color="#262b34" Offset="0" />
+                        <GradientStop Color="White" Offset="5" />
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <Border Height="200" x:Name="imageBorder">
+                    <Image Source="{Binding Movie.ImagePath,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Stretch="Fill"/>
+                </Border>
+
+                <Canvas Height="430">
+                    <TextBlock Text="{Binding Movie.Name,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="White" FontSize="25" Canvas.Left="10" Canvas.Top="20" FontStyle="Italic" FontFamily="Verdana"/>
+                    <TextBlock Text="Genre" Foreground="Gray" FontSize="15" Canvas.Left="100" Canvas.Top="59" FontStyle="Italic" FontFamily="Verdana"/>
+                    <TextBlock Text="121 min" Foreground="Gray" FontSize="13" Canvas.Left="30" Canvas.Top="60" FontStyle="Italic" FontFamily="Verdana"/>
+                    <Image Source="/Image/clock.png" Width="13" Canvas.Left="10" Canvas.Top="61"/>
+
+                    <TextBlock Text="{Binding Movie.Description,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="Gray" FontSize="13" Canvas.Left="10" Canvas.Top="100" FontStyle="Italic" FontFamily="Verdana"
+                               Width="200" Height="70" TextWrapping="Wrap"/>
+                </Canvas>
+            </StackPanel>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <StackPanel.Background>
+                        <LinearGradientBrush >
+                            <GradientStop Color="#262b34" Offset="0" />
+                            <GradientStop Color="White" Offset="5" />
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+
+                    <Canvas>
+                        <ComboBox ItemsSource="{Binding Movie.Locations}" DisplayMemberPath="LocationName" x:Name="locationCombobox" Canvas.Top="40" Canvas.Left="100" FontFamily="Verdana" FontStyle="Italic" >
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding CinemaSelectedCommand}"  CommandParameter="{Binding ElementName=locationCombobox,Path=SelectedItem}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+
+                        </ComboBox>
+
+                        <ComboBox x:Name="dateCombobox" ItemsSource="{Binding Dates}" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="300" Canvas.Top="40">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding DateSelectedCommand}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+
+                        <ComboBox ItemsSource="{Binding MovieTimes}" x:Name="timeCombobx" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="500" Canvas.Top="40">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding TimeSelectedCommand}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                    </Canvas>
+                </StackPanel>
+
+                <Canvas Grid.Row="1" Background="{StaticResource PrimaryColor}">
+                    <UniformGrid Height="300" Width="600" Canvas.Left="75" Canvas.Top="60" x:Name="myUniform">
+
+                    </UniformGrid>
+                </Canvas>
+
+                <Grid Grid.Row="2" Background="#121417">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Canvas>
+                        <TextBlock Text="Name" FontSize="18" Foreground="Gray" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="40" Canvas.Top="20"/>
+                        <TextBlock Text="{Binding Movie.Name}" FontSize="18" Foreground="White" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="40" Canvas.Top="50"/>
+                        <TextBlock Text="TicKets" FontSize="18" Foreground="Gray" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="270" Canvas.Top="20"/>
+                        <TextBlock Text="{Binding TicketNumber,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  FontSize="18" Foreground="White" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="270" Canvas.Top="50"></TextBlock>
+                        <TextBlock Text="Price" FontSize="18" Foreground="Gray" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="540" Canvas.Top="20"/>
+                        <TextBlock Text="$56.4" FontSize="18" Foreground="White" FontFamily="Verdana" FontStyle="Italic" Canvas.Left="540" Canvas.Top="50"/>
+                    </Canvas>
+
+                    <Canvas Grid.Column="1" Background="#060606">
+                        <Button Style="{StaticResource myButton2}" Command="{Binding CheckOutCommand}" Height="95" Width="120" Canvas.Top="5" Canvas.Left="2" Content="CheckOut" Foreground="Green" FontSize="20" BorderThickness="0"/>
+                    </Canvas>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
