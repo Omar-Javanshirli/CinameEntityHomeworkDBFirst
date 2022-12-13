@@ -14,6 +14,7 @@ namespace CinameEntityHomeworkDBFirst.Domain.Entities
     
     public partial class Seat
     {
+        public enum SeatCase { Empty = 1, CurrentSelected = 2, Full = 3 }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Seat()
         {
@@ -23,7 +24,8 @@ namespace CinameEntityHomeworkDBFirst.Domain.Entities
         public int Id { get; set; }
         public string No { get; set; }
         public bool IsEmpty { get; set; }
-    
+        public SeatCase Case { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Time> Times { get; set; }
     }

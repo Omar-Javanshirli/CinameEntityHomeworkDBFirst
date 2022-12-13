@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
 namespace CinameEntityHomeworkDBFirst
@@ -19,6 +20,7 @@ namespace CinameEntityHomeworkDBFirst
     {
         public static IUnitOfWork DB;
         public static UniformGrid MyUniformGrid;
+        public static Button SelectedBtn;
         public App()
         {
             DB = new EFUnitWork();

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="40" d:DesignWidth="40" Width="40" Height="40" Margin="10">
     <Grid>
-        <Button x:Name="btn1"  Width="40" Height="40" Content="{Binding Seat.No}" Margin="0" Command="{Binding SeatSelectCommand}" >
+        <Button x:Name="selectedBtn"  Width="40" Height="40" Content="{Binding Seat.No}" Margin="0" Command="{Binding SeatSelectCommand}" >
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Background" Value="Transparent"/>

@@ -1,4 +1,5 @@
 ﻿
+using CinameEntityHomeworkDBFirst;
 using CinameEntityHomeworkDBFirst.Command;
 using CinameEntityHomeworkDBFirst.Domain.Entities;
 using System;
@@ -6,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
+using static CinameEntityHomeworkDBFirst.Domain.Entities.Seat;
 
 namespace CinemaProjectWpf.ViewModel
 {
@@ -19,32 +22,32 @@ namespace CinemaProjectWpf.ViewModel
             set { seat = value; OnPropertyChanged(); }
         }
 
-
         public RelayCommand SeatSelectCommand { get; set; }
 
         public SeatViewModel()
         {
-            Seat= new Seat(); 
-            //SeatSelectCommand = new RelayCommand((e) => {
-            //    string no = Seat.No;
-            //    if (Seat.Case == SeatCase.Empty)
-            //    {
+            Seat= new Seat();
+            SeatSelectCommand = new RelayCommand((e) =>
+            {
+                string no = Seat.No;
+                if (Seat.Case == SeatCase.Empty)
+                {
 
-            //    Seat = new Seat
-            //    {
-            //        Case=SeatCase.CurrentSelected,
-            //        No = no
-            //    };
-            //    }
-            //    else if(Seat.Case == SeatCase.CurrentSelected)
-            //    {
-            //        Seat = new Seat
-            //        {
-            //            Case = SeatCase.Empty,
-            //            No = no
-            //        };
-            //    }
-            //});
+                    Seat = new Seat
+                    {
+                        Case = SeatCase.CurrentSelected,
+                        No = no
+                    };
+                }
+                else if (Seat.Case == SeatCase.CurrentSelected)
+                {
+                    Seat = new Seat
+                    {
+                        Case = SeatCase.Empty,
+                        No = no
+                    };
+                }
+            });
         }
 
     }

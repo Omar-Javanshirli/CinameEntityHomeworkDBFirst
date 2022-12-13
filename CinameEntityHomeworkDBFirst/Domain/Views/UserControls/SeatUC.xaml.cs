@@ -23,6 +23,7 @@ namespace CinameEntityHomeworkDBFirst.Domain.Views.UserControls
         public SeatUC()
         {
             InitializeComponent();
+            App.SelectedBtn = selectedBtn;
         }
     }
 }
