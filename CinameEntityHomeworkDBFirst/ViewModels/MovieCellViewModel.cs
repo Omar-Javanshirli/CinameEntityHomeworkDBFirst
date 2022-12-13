@@ -1,12 +1,12 @@
 ﻿
-
 using CinameEntityHomeworkDBFirst;
 using CinameEntityHomeworkDBFirst.Command;
 using CinameEntityHomeworkDBFirst.Domain.Entities;
 using CinameEntityHomeworkDBFirst.Domain.Views;
+using CinameEntityHomeworkDBFirst.ViewModel;
 using System.Collections.Generic;
 
-namespace CinemaProjectWpf.ViewModel
+namespace CinameEntityHomeworkDBFirst.ViewModel
 {
     public class MovieCellViewModel:BaseViewModel
     {

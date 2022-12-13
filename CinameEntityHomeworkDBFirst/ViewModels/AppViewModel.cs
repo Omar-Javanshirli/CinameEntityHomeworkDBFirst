@@ -5,6 +5,7 @@ using CinameEntityHomeworkDBFirst.Domain.Entities;
 using CinameEntityHomeworkDBFirst.Domain.Views.UserControls;
 using CinameEntityHomeworkDBFirst.Model;
 using CinameEntityHomeworkDBFirst.Repository;
+using CinameEntityHomeworkDBFirst.ViewModel;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;

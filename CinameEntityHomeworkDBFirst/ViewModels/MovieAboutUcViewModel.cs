@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProjectWpf.ViewModel
+namespace CinameEntityHomeworkDBFirst.ViewModel
 {
     public class MovieAboutUcViewModel
     {

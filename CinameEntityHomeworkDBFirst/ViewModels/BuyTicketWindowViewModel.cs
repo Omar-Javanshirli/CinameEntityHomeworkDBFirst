@@ -1,10 +1,9 @@
 ﻿using CinameEntityHomeworkDBFirst;
 using CinameEntityHomeworkDBFirst.Command;
 using CinameEntityHomeworkDBFirst.Domain.Entities;
+using CinameEntityHomeworkDBFirst.Domain.Service;
 using CinameEntityHomeworkDBFirst.Domain.Views.UserControls;
-using CinemaProjectWpf.DataAccess.EFrameworkServer;
-using CinemaProjectWpf.Domain.Abstractions;
-using CinemaProjectWpf.Domain.Service;
+using CinemaPCinameEntityHomeworkDBFirstrojectWpf.Domain.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -19,7 +18,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace CinemaProjectWpf.ViewModel
+namespace CinameEntityHomeworkDBFirst.ViewModel
 {
     public class BuyTicketWindowViewModel : BaseViewModel
     {
@@ -163,6 +162,9 @@ namespace CinemaProjectWpf.ViewModel
         }
         public void TimeSelected()
         {
+            var data2 = from i in App.DB.SeatRepository.GetAll()
+                       select i;
+            var list= data2.ToList();
             TimeSelectedCommand = new RelayCommand((t) =>
             {
                 int count = 0;
@@ -175,7 +177,7 @@ namespace CinemaProjectWpf.ViewModel
                         var vm = new SeatViewModel();
                         var uc = new SeatUC();
                         uc.DataContext = vm;
-                        vm.Seat.No = count.ToString();
+                        vm.Seat.No = list[i+1].No;
                         App.MyUniformGrid.Children.Add(uc);
                     }
                     break;

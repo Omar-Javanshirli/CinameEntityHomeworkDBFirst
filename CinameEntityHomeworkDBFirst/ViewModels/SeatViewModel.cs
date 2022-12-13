@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media;
 using static CinameEntityHomeworkDBFirst.Domain.Entities.Seat;
 
-namespace CinemaProjectWpf.ViewModel
+namespace CinameEntityHomeworkDBFirst.ViewModel
 {
     public class SeatViewModel:BaseViewModel
     {
@@ -26,13 +27,19 @@ namespace CinemaProjectWpf.ViewModel
 
         public SeatViewModel()
         {
-            Seat= new Seat();
+            //Seat= new Seat();
             SeatSelectCommand = new RelayCommand((e) =>
             {
+                //var btn=e as Button;
+                //if (btn.Content.ToString() == Seat.No)
+                //{
+                //    btn.IsEnabled= false;
+                //}
+
+
                 string no = Seat.No;
                 if (Seat.Case == SeatCase.Empty)
                 {
-
                     Seat = new Seat
                     {
                         Case = SeatCase.CurrentSelected,

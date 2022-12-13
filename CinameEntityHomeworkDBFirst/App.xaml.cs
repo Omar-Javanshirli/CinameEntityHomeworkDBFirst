@@ -1,6 +1,6 @@
-﻿using CinameEntityHomeworkDBFirst.Domain.Entities;
-using CinemaProjectWpf.DataAccess.EFrameworkServer;
-using CinemaProjectWpf.Domain.Abstractions;
+﻿using CinameEntityHomeworkDBFirst.DataAccess.EFrameworkServer;
+using CinameEntityHomeworkDBFirst.Domain.Abstractions;
+using CinameEntityHomeworkDBFirst.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

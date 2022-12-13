@@ -1,11 +1,11 @@
-﻿using CinemaProjectWpf.Domain.Abstractions;
+﻿using CinameEntityHomeworkDBFirst.Domain.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProjectWpf.DataAccess.EFrameworkServer
+namespace CinameEntityHomeworkDBFirst.DataAccess.EFrameworkServer
 {
     public class EFUnitWork : IUnitOfWork
     {

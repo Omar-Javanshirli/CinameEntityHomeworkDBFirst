@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProjectWpf.ViewModel
+namespace CinameEntityHomeworkDBFirst.ViewModel
 {
     public class BaseViewModel:INotifyPropertyChanged
     {

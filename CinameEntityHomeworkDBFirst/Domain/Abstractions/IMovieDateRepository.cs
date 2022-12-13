@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProjectWpf.Domain.Abstractions
+namespace CinameEntityHomeworkDBFirst.Domain.Abstractions
 {
     public interface IMovieDateRepository:IRepository<MovieDate>
     {

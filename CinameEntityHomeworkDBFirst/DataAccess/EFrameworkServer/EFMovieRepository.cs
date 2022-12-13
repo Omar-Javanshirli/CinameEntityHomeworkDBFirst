@@ -1,5 +1,5 @@
-﻿using CinameEntityHomeworkDBFirst.Domain.Entities;
-using CinemaProjectWpf.Domain.Abstractions;
+﻿using CinameEntityHomeworkDBFirst.Domain.Abstractions;
+using CinameEntityHomeworkDBFirst.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaProjectWpf.DataAccess.EFrameworkServer
+namespace CinameEntityHomeworkDBFirst.DataAccess.EFrameworkServer
 {
     public class EFMovieRepository : IMovieRepository
     {
