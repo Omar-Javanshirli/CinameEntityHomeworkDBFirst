@@ -27,14 +27,14 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
 
         public SeatViewModel()
         {
-            //Seat= new Seat();
+            Seat= new Seat();
             SeatSelectCommand = new RelayCommand((e) =>
             {
-                //var btn=e as Button;
-                //if (btn.Content.ToString() == Seat.No)
-                //{
-                //    btn.IsEnabled= false;
-                //}
+                var btn = e as Button;
+                if (btn.Content.ToString() == Seat.No)
+                {
+                    btn.IsEnabled = false;
+                }
 
 
                 string no = Seat.No;

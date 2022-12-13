@@ -23,10 +23,9 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
             BuyCommand = new RelayCommand((e) =>
             {
                 SelectedItem = App.DB.MovieRepository.Getdata(Movie.Id);
-                var view = new BuyTicketWindowViewModel();
+                var view = new BuyTicketWindowViewModel(SelectedItem);
                 var window = new BuyTicketWindow();
                 window.DataContext = view;
-                view.Movie = SelectedItem;
                 view.Movies = Movies;
                 window.Show();
 

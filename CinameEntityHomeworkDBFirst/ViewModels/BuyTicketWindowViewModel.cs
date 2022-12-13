@@ -26,7 +26,14 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
         private readonly MovieDateService _dateService;
         private readonly TimeService _timeService;
 
-        public Movy Movie { get; set; } = new Movy();
+        private Movy movie;
+
+        public Movy Movie
+        {
+            get { return movie; }
+            set { movie = value; OnPropertyChanged(); }
+        }
+
         public MovieDate MovieDates { get; set; }
         public RelayCommand RowButoonCommand { get; set; }
         public RelayCommand CheckOutCommand { get; set; }
@@ -93,11 +100,12 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
         public List<Movy> Movies { get; set; }
 
 
-        public BuyTicketWindowViewModel()
+        public BuyTicketWindowViewModel(Movy movie)
         {
             _locationService = new LocationService();
             _dateService = new MovieDateService();
             _timeService = new TimeService();
+            Movie = movie;
             LocationSelected();
             DateSelected();
             TimeSelected();
@@ -107,23 +115,21 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
 
         public async Task LocationSelected()
         {
-            CinemaSelectedCommand = new RelayCommand((e) =>
-            {
+           // CinemaSelectedCommand = new RelayCommand((e) =>
+           // {
                 Locations = new ObservableCollection<Location>(Movie.Locations);
                 listMovieDate = new List<MovieDate>();
                 Dates = new ObservableCollection<string>();
-                foreach (var item in Locations)
-                {
+                var item = Locations.First();
                     var data = _locationService.GetMovieDates(item.Id);
                     foreach (var d in data.MovieDates)
                     {
                         listMovieDate.Add(d);
                         Dates.Add(d.DateName);
                     }
-                    break;
-                }
+                
                 MovieDatess = new ObservableCollection<MovieDate>(listMovieDate);
-            });
+           // });
         }
         public async void DateSelected()
         {
@@ -177,7 +183,7 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
                         var vm = new SeatViewModel();
                         var uc = new SeatUC();
                         uc.DataContext = vm;
-                        vm.Seat.No = list[i+1].No;
+                        vm.Seat.No = count.ToString();
                         App.MyUniformGrid.Children.Add(uc);
                     }
                     break;

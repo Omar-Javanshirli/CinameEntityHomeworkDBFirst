@@ -68,7 +68,7 @@
                     </StackPanel.Background>
 
                     <Canvas>
-                        <ComboBox ItemsSource="{Binding Movie.Locations}" DisplayMemberPath="LocationName" x:Name="locationCombobox" Canvas.Top="40" Canvas.Left="100" FontFamily="Verdana" FontStyle="Italic" >
+                        <ComboBox ItemsSource="{Binding Locations,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="LocationName" x:Name="locationCombobox" Canvas.Top="40" Canvas.Left="100" FontFamily="Verdana" FontStyle="Italic" >
 
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged">
