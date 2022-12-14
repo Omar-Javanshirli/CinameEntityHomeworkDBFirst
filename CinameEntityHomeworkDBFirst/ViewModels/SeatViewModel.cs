@@ -27,10 +27,18 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
 
         public SeatViewModel()
         {
+            var seats = App.DB.SeatRepository.GetAll();
+            foreach (var item in seats)
+            {
+                if (item.IsEmpty == true)
+                {
+
+                }
+            }
+
             Seat = new Seat();
             SeatSelectCommand = new RelayCommand((e) =>
             {
-                var btn = e as Button;
                 string no = Seat.No;
                 var id=seat.Id;
                 if (Seat.IsEmpty == false)

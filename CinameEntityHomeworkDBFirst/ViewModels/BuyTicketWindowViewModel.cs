@@ -41,6 +41,16 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
         public RelayCommand DateSelectedCommand { get; set; }
         public RelayCommand TimeSelectedCommand { get; set; }
         public RelayCommand BackCommand { get; set; }
+
+        private List<SeatUC> seatsUc;
+
+        public List<SeatUC> SeatsUc
+        {
+            get { return seatsUc; }
+            set { seatsUc = value;OnPropertyChanged(); }
+        }
+
+
         public ObservableCollection<Location> Locations { get; set; }
 
         private ObservableCollection<MovieDate> movieDatess;
@@ -168,15 +178,14 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
         }
         public void TimeSelected()
         {
+            SeatsUc = new List<SeatUC>();
             var data2 = from i in App.DB.SeatRepository.GetAll()
                         select i;
             var list = data2.ToList();
             TimeSelectedCommand = new RelayCommand((t) =>
             {
                 var item = Times.FirstOrDefault();
-
                 int count = 0;
-
                 var data = _timeService.GetDataSeat(item.Id);
                 for (int i = 0; i < data.Seats.Count; i++)
                 {

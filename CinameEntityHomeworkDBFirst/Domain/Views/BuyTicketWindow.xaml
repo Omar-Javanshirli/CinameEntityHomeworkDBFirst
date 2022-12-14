@@ -97,7 +97,8 @@
                 </StackPanel>
 
                 <Canvas Grid.Row="1" Background="{StaticResource PrimaryColor}">
-                    <UniformGrid Height="300" Width="600" Canvas.Left="75" Canvas.Top="60" x:Name="myUniform" >
+                    <UniformGrid Height="300" Width="600" Canvas.Left="75" Canvas.Top="60" x:Name="myUniform"
+                                 DataContext="{Binding SeatsUc}">
 
                     </UniformGrid>
                 </Canvas>

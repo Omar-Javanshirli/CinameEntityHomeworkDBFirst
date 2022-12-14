@@ -54,7 +54,7 @@ namespace CinameEntityHomeworkDBFirst.DataAccess.EFrameworkServer
             using (var context = new CinemaPlusEntities())
             {
 
-                var item=context.Seats.FirstOrDefault(s => s.Id==data.Id);
+                var item=context.Seats.SingleOrDefault(s => s.Id==data.Id);
                 item = data;
                 //context.Entry(data).State = EntityState.Modified;
                 context.SaveChanges();
