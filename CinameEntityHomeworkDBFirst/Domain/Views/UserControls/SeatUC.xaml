@@ -33,11 +33,11 @@
                                 </Border>
 
                                 <ControlTemplate.Triggers>
-                                    <DataTrigger Binding="{Binding Seat.Case,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Value="2">
+                                    <DataTrigger Binding="{Binding Seat.IsEmpty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Value="true">
                                         <Setter Property="Background" Value="Orange" />
                                     </DataTrigger>
-                                    <DataTrigger Binding="{Binding Seat.Case,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Value="3">
-                                        <Setter Property="Background" Value="Red" />
+                                    <DataTrigger Binding="{Binding Seat.IsEmpty,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Value="false">
+                                        <Setter Property="Background" Value="{StaticResource PrimaryColor}" />
                                     </DataTrigger>
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>

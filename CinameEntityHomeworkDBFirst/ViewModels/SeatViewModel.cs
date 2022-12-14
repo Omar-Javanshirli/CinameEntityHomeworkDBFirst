@@ -13,7 +13,7 @@ using static CinameEntityHomeworkDBFirst.Domain.Entities.Seat;
 
 namespace CinameEntityHomeworkDBFirst.ViewModel
 {
-    public class SeatViewModel:BaseViewModel
+    public class SeatViewModel : BaseViewModel
     {
         private Seat seat;
 
@@ -27,32 +27,30 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
 
         public SeatViewModel()
         {
-            Seat= new Seat();
+            Seat = new Seat();
             SeatSelectCommand = new RelayCommand((e) =>
             {
                 var btn = e as Button;
-                if (btn.Content.ToString() == Seat.No)
-                {
-                    btn.IsEnabled = false;
-                }
-
-
                 string no = Seat.No;
-                if (Seat.Case == SeatCase.Empty)
+                var id=seat.Id;
+                if (Seat.IsEmpty == false)
                 {
                     Seat = new Seat
                     {
-                        Case = SeatCase.CurrentSelected,
+                        IsEmpty = true,
                         No = no
                     };
+                    App.DB.SeatRepository.UpdateData(seat);
                 }
-                else if (Seat.Case == SeatCase.CurrentSelected)
+                else if (Seat.IsEmpty == true)
                 {
                     Seat = new Seat
-                    {
-                        Case = SeatCase.Empty,
+                    {   
+
+                        IsEmpty = false,
                         No = no
                     };
+                    App.DB.SeatRepository.UpdateData(seat);
                 }
             });
         }

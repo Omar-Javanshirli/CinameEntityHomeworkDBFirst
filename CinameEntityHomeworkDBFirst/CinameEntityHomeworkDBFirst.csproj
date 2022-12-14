@@ -79,38 +79,38 @@
     <Compile Include="DataAccess\EFrameworkServer\EFSeatRepository.cs" />
     <Compile Include="DataAccess\EFrameworkServer\EFTimeRepository.cs" />
     <Compile Include="DataAccess\EFrameworkServer\EFUnitWork.cs" />
-    <Compile Include="Domain\Entities\CinemaPlusEntities1.Context.cs">
+    <Compile Include="Domain\Entities\CinemaPlusEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CinemaPlusEntities1.Context.tt</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Entities\CinemaPlusEntities1.cs">
+    <Compile Include="Domain\Entities\CinemaPlusEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CinemaPlusEntities1.tt</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Entities\CinemaPlusEntities1.Designer.cs">
+    <Compile Include="Domain\Entities\CinemaPlusEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CinemaPlusEntities1.edmx</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entities\database_firewall_rules.cs">
-      <DependentUpon>CinemaPlusEntities1.tt</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entities\Location.cs">
-      <DependentUpon>CinemaPlusEntities1.tt</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entities\MovieDate.cs">
-      <DependentUpon>CinemaPlusEntities1.tt</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entities\Movy.cs">
-      <DependentUpon>CinemaPlusEntities1.tt</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entities\Seat.cs">
-      <DependentUpon>CinemaPlusEntities1.tt</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Entities\Time.cs">
-      <DependentUpon>CinemaPlusEntities1.tt</DependentUpon>
+      <DependentUpon>CinemaPlusEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Domain\Views\BuyTicketWindow.xaml.cs">
       <DependentUpon>BuyTicketWindow.xaml</DependentUpon>
@@ -203,12 +203,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Domain\Entities\CinemaPlusEntities1.edmx">
+    <EntityDeploy Include="Domain\Entities\CinemaPlusEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CinemaPlusEntities1.Designer.cs</LastGenOutput>
+      <LastGenOutput>CinemaPlusEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Domain\Entities\CinemaPlusEntities1.edmx.diagram">
-      <DependentUpon>CinemaPlusEntities1.edmx</DependentUpon>
+    <None Include="Domain\Entities\CinemaPlusEntities.edmx.diagram">
+      <DependentUpon>CinemaPlusEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -234,21 +234,23 @@
     <Resource Include="Image\setting.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Domain\Entities\CinemaPlusEntities1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CinemaPlusEntities1.Context.cs</LastGenOutput>
-      <DependentUpon>CinemaPlusEntities1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Domain\Entities\CinemaPlusEntities1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CinemaPlusEntities1.edmx</DependentUpon>
-      <LastGenOutput>CinemaPlusEntities1.cs</LastGenOutput>
-    </Content>
     <Resource Include="Image\x-men2.jpg" />
     <Resource Include="Image\Morbius.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Domain\Entities\CinemaPlusEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CinemaPlusEntities.edmx</DependentUpon>
+      <LastGenOutput>CinemaPlusEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Domain\Entities\CinemaPlusEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CinemaPlusEntities.edmx</DependentUpon>
+      <LastGenOutput>CinemaPlusEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

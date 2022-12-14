@@ -68,7 +68,7 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
         }
 
         private ObservableCollection<string> movieTimes;
-                
+
         public ObservableCollection<string> MovieTimes
         {
             get { return movieTimes; }
@@ -115,21 +115,21 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
 
         public async Task LocationSelected()
         {
-           // CinemaSelectedCommand = new RelayCommand((e) =>
-           // {
-                Locations = new ObservableCollection<Location>(Movie.Locations);
-                listMovieDate = new List<MovieDate>();
-                Dates = new ObservableCollection<string>();
-                var item = Locations.First();
-                    var data = _locationService.GetMovieDates(item.Id);
-                    foreach (var d in data.MovieDates)
-                    {
-                        listMovieDate.Add(d);
-                        Dates.Add(d.DateName);
-                    }
-                
-                MovieDatess = new ObservableCollection<MovieDate>(listMovieDate);
-           // });
+            // CinemaSelectedCommand = new RelayCommand((e) =>
+            // {
+            Locations = new ObservableCollection<Location>(Movie.Locations);
+            listMovieDate = new List<MovieDate>();
+            Dates = new ObservableCollection<string>();
+            var item = Locations.First();
+            var data = _locationService.GetMovieDates(item.Id);
+            foreach (var d in data.MovieDates)
+            {
+                listMovieDate.Add(d);
+                Dates.Add(d.DateName);
+            }
+
+            MovieDatess = new ObservableCollection<MovieDate>(listMovieDate);
+            // });
         }
         public async void DateSelected()
         {
@@ -169,24 +169,23 @@ namespace CinameEntityHomeworkDBFirst.ViewModel
         public void TimeSelected()
         {
             var data2 = from i in App.DB.SeatRepository.GetAll()
-                       select i;
-            var list= data2.ToList();
+                        select i;
+            var list = data2.ToList();
             TimeSelectedCommand = new RelayCommand((t) =>
             {
+                var item = Times.FirstOrDefault();
+
                 int count = 0;
-                foreach (var item in Times)
+
+                var data = _timeService.GetDataSeat(item.Id);
+                for (int i = 0; i < data.Seats.Count; i++)
                 {
-                    var data = _timeService.GetDataSeat(item.Id);
-                    for (int i = 0; i < data.Seats.Count; i++)
-                    {
-                        ++count;
-                        var vm = new SeatViewModel();
-                        var uc = new SeatUC();
-                        uc.DataContext = vm;
-                        vm.Seat.No = count.ToString();
-                        App.MyUniformGrid.Children.Add(uc);
-                    }
-                    break;
+                    ++count;
+                    var vm = new SeatViewModel();
+                    var uc = new SeatUC();
+                    uc.DataContext = vm;
+                    vm.Seat.No = count.ToString();
+                    App.MyUniformGrid.Children.Add(uc);
                 }
             });
         }
